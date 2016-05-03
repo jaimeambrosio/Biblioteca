@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css" />
-        <link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+        <link rel="stylesheet" type="text/css" href="css/styleLogin.css" />
         <title>JSP Page</title>
     </head>
     <body>

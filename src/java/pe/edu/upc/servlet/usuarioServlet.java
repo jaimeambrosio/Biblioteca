@@ -96,7 +96,8 @@ public class usuarioServlet extends HttpServlet {
             if (usuario != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("usuario", usuario);
-                
+                RequestDispatcher rd = request.getRequestDispatcher("paginas/principal.jsp");
+                rd.forward(request, response);
             } else {
                 request.setAttribute("mensaje", "Codigo o constraseña incorrecto.");
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
