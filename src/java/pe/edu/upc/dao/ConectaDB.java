@@ -19,7 +19,7 @@ public class ConectaDB {
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/bibliotecadb?zeroDateTimeBehavior=convertToNull";
         String usuario = "root";
-        String clave = "root1";
+        String clave = "root";
         try {
             Class.forName(driver);
             return DriverManager.getConnection(url, usuario, clave);
