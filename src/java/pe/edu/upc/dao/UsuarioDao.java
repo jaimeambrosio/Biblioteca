@@ -61,4 +61,19 @@ public class UsuarioDao {
         return list;
     }
     
+    public void registrarUsuario(Usuario u)throws Exception
+    {
+        String sql = "INSERT INTO usuario VALUES(?,?,?,?,?,?);";
+        Connection cn = ConectaDB.getConnection();
+        PreparedStatement ps = cn.prepareStatement(sql);
+        ps.setString(1, u.getCodUsuario());
+        ps.setString(2, u.getNombre());
+        ps.setString(3, u.getApellido());
+        ps.setString(4, u.getCorreo());
+        ps.setString(5, u.getClave());
+        ps.setInt(6, u.getIdTipoUsuario());
+        ps.executeUpdate();
+        ps.close();
+        cn.close();        
+    }
 }

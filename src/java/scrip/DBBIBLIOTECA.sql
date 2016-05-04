@@ -225,4 +225,6 @@ UNLOCK TABLES;
 -- Dump completed on 2016-05-03 10:49:11
 /*DATOS INICIALES*/
 INSERT INTO tipousuario(idTipoUsuario,nombreTUsuario,observacion) VALUES(10,'Director','Director del colegio, posee todos los accesos.');
+INSERT INTO tipousuario(idTipoUsuario,nombreTUsuario,observacion) VALUES(11,'Bibliotecario','Actor que administra la biblioteca, no puede registrar usuarios.');
+INSERT INTO tipousuario(idTipoUsuario,nombreTUsuario,observacion) VALUES(12,'Alumno','Actor que hace cosultas y reservas..');
 INSERT INTO USUARIO VALUES('D0001','Jaime Jesus','Ambrosio Mallqui','correo@correo.com','1234',10);

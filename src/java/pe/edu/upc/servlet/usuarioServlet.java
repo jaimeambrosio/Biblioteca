@@ -6,9 +6,6 @@
 package pe.edu.upc.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,7 +41,11 @@ public class usuarioServlet extends HttpServlet {
                 break;
             }
             case "CERRARSESION": {
-                cerrarSesion(request,response);
+                cerrarSesion(request, response);
+                break;
+            }
+            case "REGISTRAR": {
+                registrar(request, response);
                 break;
             }
 
@@ -120,14 +121,32 @@ public class usuarioServlet extends HttpServlet {
     }
 
     private void cerrarSesion(HttpServletRequest request, HttpServletResponse response) {
-         HttpSession session = request.getSession(true);
-         session.invalidate();
-         try {
+        HttpSession session = request.getSession(true);
+        session.invalidate();
+        try {
             response.sendRedirect("index.jsp");
         } catch (Exception e) {
         }
-         
-        
+
+    }
+
+    private void registrar(HttpServletRequest request, HttpServletResponse response) {
+
+        try {
+            Usuario u = new Usuario();
+            u.setCodUsuario(request.getParameter("txtRegCodigoUsuario").trim());
+            u.setClave(request.getParameter("txtRegContrasenia").trim());
+            u.setNombre(request.getParameter("txtNombre").trim());
+            u.setApellido(request.getParameter("txtApellidos").trim());
+            u.setCorreo(request.getParameter("txtCorreo").trim());
+            u.setIdTipoUsuario(Integer.valueOf(request.getParameter("txtTipoUsuario")));
+            UsuarioDao dao = new UsuarioDao();
+            dao.registrarUsuario(u);
+            response.sendRedirect("index.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
