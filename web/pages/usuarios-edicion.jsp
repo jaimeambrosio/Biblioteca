@@ -37,16 +37,15 @@
                 <div class="col-sm-3">
                     <div ><%-- menu costado --%>
                         <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation" class="active"><a href="#">Home</a></li>
-                            <li role="presentation"><a href="#">Profile</a></li>
-                            <li role="presentation"><a href="#">Messages</a></li>
+                            <li role="presentation" class=""><a href="usuarios-nuevo.jsp">Nuevo usuario</a></li>
+                            <li role="presentation" class="active"><a href="usuarios-edicion.jsp">Edicion de usuario</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-9">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Panel title</h3>
+                            <h3 class="panel-title">Busqueda</h3>
                         </div>
                         <div class="panel-body">
                             Panel content
