@@ -8,6 +8,8 @@ package pe.edu.upc.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import pe.edu.upc.entity.TipoUsuario;
 import pe.edu.upc.entity.Usuario;
 
 /**
@@ -38,6 +40,25 @@ public class UsuarioDao {
         pst.close();
         cn.close();
         return u;
+    }
+    
+    public ArrayList<TipoUsuario> listTipoUsuario()throws Exception
+    {
+        ArrayList<TipoUsuario> list = new ArrayList<>();
+        String sql ="SELECT * FROM tipousuario";
+        Connection cn = ConectaDB.getConnection();
+        PreparedStatement ps = cn.prepareStatement(sql);
+        ResultSet rs =ps.executeQuery();
+        while (rs.next()) {
+            TipoUsuario t= new  TipoUsuario();
+            t.setIdTipoUsuario(rs.getInt(1));
+            t.setNombreTUsuario(rs.getString(2));
+            t.setObservacion(rs.getString(3));
+        }
+        rs.close();
+        ps.close();
+        cn.close();
+        return list;
     }
     
 }

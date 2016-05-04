@@ -43,6 +43,10 @@ public class usuarioServlet extends HttpServlet {
                 login(request, response);
                 break;
             }
+            case "CERRARSESION": {
+                cerrarSesion(request,response);
+                break;
+            }
 
         }
 
@@ -96,7 +100,7 @@ public class usuarioServlet extends HttpServlet {
             if (usuario != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("usuario", usuario);
-                response.sendRedirect("pages/principal.jsp");
+                response.sendRedirect("pages/reserva.jsp");
             } else {
                 request.setAttribute("mensaje", "Codigo o constraseña incorrecto.");
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -109,10 +113,21 @@ public class usuarioServlet extends HttpServlet {
             try {
                 rd.forward(request, response);
             } catch (Exception ex) {
-               
-            } 
+
+            }
         }
 
+    }
+
+    private void cerrarSesion(HttpServletRequest request, HttpServletResponse response) {
+         HttpSession session = request.getSession(true);
+         session.invalidate();
+         try {
+            response.sendRedirect("index.jsp");
+        } catch (Exception e) {
+        }
+         
+        
     }
 
 }
