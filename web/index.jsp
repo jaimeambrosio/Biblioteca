@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css" />
         <link rel="stylesheet" type="text/css" href="css/styleLogin.css" />
-        <title>JSP Page</title>
+        <title>Sistema de biblioteca</title>
     </head>
     <body>
         <div class="container" >

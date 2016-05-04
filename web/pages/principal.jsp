@@ -5,14 +5,19 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    if (request.getSession().getAttribute("usuario") == null) {
+        response.sendRedirect("../index.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css" />
-  
+        <title>Sistema de biblioteca</title>
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.css" />
+
     </head>
     <body  >
         <div style="" >
@@ -26,7 +31,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Brand</a>
+                        <a class="navbar-brand" href="#"><%=request.getSession()%></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,12 +52,6 @@
                                 </ul>
                             </li>
                         </ul>
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">Link</a></li>
                             <li class="dropdown">
@@ -71,7 +70,7 @@
             </nav>
 
         </div>
-        <script type="text/javascript" src="js/jquery.js" ></script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.js" ></script>
+        <script type="text/javascript" src="../js/jquery.js" ></script>
+        <script type="text/javascript" src="../bootstrap/js/bootstrap.js" ></script>
     </body>
 </html>
