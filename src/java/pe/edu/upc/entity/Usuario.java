@@ -9,6 +9,37 @@ public class Usuario {
     private String correo;
     private String clave;
     private Integer idTipoUsuario;
+    private String nombreTUsuario;
+
+    public String getNombreTUsuario() {
+        return nombreTUsuario;
+    }
+
+    public void setNombreTUsuario(String nombreTUsuario) {
+        this.nombreTUsuario = nombreTUsuario;
+    }
+
+    public Usuario(String codUsuario, String nombre, String apellido, String correo, String clave, Integer idTipoUsuario, String nombreTUsuario) {
+        this.codUsuario = codUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.clave = clave;
+        this.idTipoUsuario = idTipoUsuario;
+        this.nombreTUsuario = nombreTUsuario;
+    }
+
+    public Usuario(String codUsuario, String nombre, String apellido, String correo, String clave, Integer idTipoUsuario) {
+        this.codUsuario = codUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.clave = clave;
+        this.idTipoUsuario = idTipoUsuario;
+    }
+
+    public Usuario() {
+    }
 
     /**
      * @return the codUsuario

@@ -4,6 +4,9 @@
     Author     : Jaime Ambrosio
 --%>
 
+<%@page import="pe.edu.upc.dao.UsuarioDao"%>
+<%@page import="pe.edu.upc.entity.TipoUsuario"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="pe.edu.upc.entity.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -42,25 +45,26 @@
                         </ul>
                     </div>
                 </div>
+                <label></label>
                 <div class="col-sm-9">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Nuevo Usuario</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="usuarioServlet?accion=REGISTRAR" method="POST" >
+                            <form action="../usuarioServlet?accion=REGISTRAR" method="POST" >
 
                                 <div class="row" >
                                     <div class="col-sm-6" >
                                         <div class="form-group">
                                             <label>Codigo de usuario</label>
-                                            <input type="text" class="form-control"  name="txtRegCodigoUsuario" placeholder="Codigo">
+                                            <input type="text" class="form-control"  name="txtRegCodigoUsuario" placeholder="Codigo" required="required" >
                                         </div>
                                     </div>
                                     <div class="col-sm-6" >
                                         <div class="form-group">
                                             <label >Contraseña</label>
-                                            <input type="password" class="form-control" name="txtRegContrasenia" placeholder="Contraseña">
+                                            <input type="password" class="form-control" name="txtRegContrasenia" placeholder="Contraseña" required="required" >
                                         </div>
                                     </div>
                                 </div>
@@ -68,13 +72,13 @@
                                     <div class="col-sm-6" >
                                         <div class="form-group">
                                             <label>Nombres</label>
-                                            <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombres">
+                                            <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombres" required="required" >
                                         </div>
                                     </div>
                                     <div class="col-sm-6" >
                                         <div class="form-group">
                                             <label>Apellidos</label>
-                                            <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" placeholder="Apellidos">
+                                            <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" placeholder="Apellidos" required="required" >
                                         </div> 
                                     </div>
                                 </div>
@@ -82,21 +86,35 @@
                                     <div class="col-sm-6" >
                                         <div class="form-group">
                                             <label>Correo</label>
-                                            <input type="email" class="form-control" id="txtCorreo" name="txtCorreo" placeholder="Correo">
+                                            <input type="email" class="form-control" id="txtCorreo" name="txtCorreo" placeholder="Correo" required="required" >
                                         </div> 
                                     </div>
                                     <div class="col-sm-6" >
-                                        <input type="hidden" name="txtTipoUsuario" value="12" >
                                         <label>Tipo de usuario</label>
-                                        <select class="form-control" name="txtTipoUsuario" >
-                                            
+                                        <select class="form-control" name="txtTipoUsuario" required="required"  >
+
+                                            <%
+                                                UsuarioDao dao = new UsuarioDao();
+                                                ArrayList<TipoUsuario> list = dao.listTipoUsuario();
+                                                for (TipoUsuario t : list) {
+                                            %>
+                                            <option value="<%=t.getIdTipoUsuario()%>"><%=t.getNombreTUsuario()%></option>
+                                            <%}%>
+
                                         </select>
 
                                     </div>
                                 </div>
                                 <div class="row" >
-                                    <div class="col-sm-12" ><input type="submit" class="btn btn-primary" value="Registrar" ></div>
-                                    
+                                    <div class="col-sm-3" >
+                                        <div class="form-group">
+                                            <label></label>
+                                            <input type="submit" class="form-control btn btn-primary" value="Registrar" >
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" ></div>
+                                    <div class="col-sm-6" >
+                                    </div>
                                 </div>
                             </form>
                         </div>

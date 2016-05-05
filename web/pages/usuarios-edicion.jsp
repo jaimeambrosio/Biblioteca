@@ -4,6 +4,8 @@
     Author     : Jaime Ambrosio
 --%>
 
+<%@page import="pe.edu.upc.dao.UsuarioDao"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="pe.edu.upc.entity.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -24,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.css" />
         <link rel="stylesheet" type="text/css" href="../css/styleMain.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/datatable.min.css" />
 
     </head>
     <body  >
@@ -42,25 +45,94 @@
                         </ul>
                     </div>
                 </div>
+                <label></label>
                 <div class="col-sm-9">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Busqueda</h3>
                         </div>
                         <div class="panel-body">
-                            Panel content
-                        </div></div>
+                            <form action="" method="POST" >
+                                <div class="row" >
+                                    <div class="col-sm-6" >
+                                        <div class="form-group">
+                                            <label>Codigo de usuario</label>
+                                            <input type="text" class="form-control"  name="txtCodigo" placeholder="Codigo"  >
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" >
+                                        <div class="form-group">
+                                            <label>Nombres</label>
+                                            <input type="text" class="form-control"  name="txtNombre" placeholder="Nombres" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-sm-6" >
+                                        <div class="form-group">
+                                            <label>Apellido</label>
+                                            <input type="text" class="form-control"  name="txtApellido" placeholder="Apellido"  >
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" ></div>
+                                    <div class="col-sm-3" >
+                                        <div class="form-group">
+                                            <label></label>
+                                            <input type="submit" class="form-control btn btn-primary" value="Buscar"   >
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <table id="tbUsuariosEdicion" class="display nowrap" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Correo</th>
+                                <th>...</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                Usuario usuBus = new Usuario(request.getParameter("txtCodigo"), request.getParameter("txtNombre"), request.getParameter("txtApellido"), null, null, null, null);
+                                UsuarioDao dao = new UsuarioDao();
+                                ArrayList<Usuario> listUsu = dao.searchUsuarios(usuBus);
+                                if (listUsu != null)
+                                    for (Usuario item : listUsu) {
+                            %>
+                            <tr>
+                                <td><%=item.getCodUsuario()%></td>
+                                <td><%=item.getNombre()%></td>
+                                <td><%=item.getApellido()%></td>
+                                <td><%=item.getCorreo()%></td>
+                                <td>
+                                    <a href="#" title="Editar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> &nbsp;&nbsp;&nbsp;
+                                    <a href="#" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                </td>
+                            </tr>
+                            <%}%>
+
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
 
         </div>
         <script type="text/javascript" src="../js/jquery.js" ></script>
         <script type="text/javascript" src="../bootstrap/js/bootstrap.js" ></script>
+        <script type="text/javascript" src="../bootstrap/js/datatable.min.js" ></script>
         <script>
-            $().ready(function(){
+            $().ready(function () {
                 $("#liUsuarios").addClass("active");
+                $("#tbUsuariosEdicion").DataTable({
+                    "scrollX": true
+                });
             });
-            
+
         </script>
     </body>
 </html>

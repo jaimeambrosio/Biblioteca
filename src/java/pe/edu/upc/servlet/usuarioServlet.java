@@ -142,7 +142,7 @@ public class usuarioServlet extends HttpServlet {
             u.setIdTipoUsuario(Integer.valueOf(request.getParameter("txtTipoUsuario")));
             UsuarioDao dao = new UsuarioDao();
             dao.registrarUsuario(u);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("pages/usuarios-nuevo.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }

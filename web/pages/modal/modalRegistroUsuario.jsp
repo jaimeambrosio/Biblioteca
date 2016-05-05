@@ -23,13 +23,13 @@
                         <div class="col-sm-6" >
                             <div class="form-group">
                                 <label>Codigo de usuario</label>
-                                <input type="text" class="form-control"  name="txtRegCodigoUsuario" placeholder="Codigo">
+                                <input type="text" class="form-control"  name="txtRegCodigoUsuario" placeholder="Codigo" required="required" >
                             </div>
                         </div>
                         <div class="col-sm-6" >
                             <div class="form-group">
                                 <label >Contraseña</label>
-                                <input type="password" class="form-control" name="txtRegContrasenia" placeholder="Contraseña">
+                                <input type="password" class="form-control" name="txtRegContrasenia" placeholder="Contraseña" required="required" >
                             </div>
                         </div>
                     </div>
@@ -37,13 +37,13 @@
                         <div class="col-sm-6" >
                             <div class="form-group">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombres">
+                                <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombres" required="required" >
                             </div>
                         </div>
                         <div class="col-sm-6" >
                             <div class="form-group">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" placeholder="Apellidos">
+                                <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" placeholder="Apellidos" required="required" >
                             </div> 
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="col-sm-6" >
                             <div class="form-group">
                                 <label>Correo</label>
-                                <input type="email" class="form-control" id="txtCorreo" name="txtCorreo" placeholder="Correo">
+                                <input type="email" class="form-control" id="txtCorreo" name="txtCorreo" placeholder="Correo" required="required" >
                             </div> 
                         </div>
                         <div class="col-sm-6" >
