@@ -48,6 +48,10 @@ public class usuarioServlet extends HttpServlet {
                 registrar(request, response);
                 break;
             }
+            case "ELIMINAR": {
+                eliminar(request, response);
+                break;
+            }
 
         }
 
@@ -101,7 +105,7 @@ public class usuarioServlet extends HttpServlet {
             if (usuario != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("usuario", usuario);
-                response.sendRedirect("pages/reserva.jsp");
+                response.sendRedirect("pages/catalogo.jsp");
             } else {
                 request.setAttribute("mensaje", "Codigo o constraseña incorrecto.");
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -147,6 +151,17 @@ public class usuarioServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+
+    private void eliminar(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            
+            UsuarioDao dao=new UsuarioDao();
+            dao.eliminarUsuario(request.getParameter("codUsuario"));
+            response.sendRedirect("pages/usuarios-edicion.jsp?busq=ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

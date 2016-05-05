@@ -52,7 +52,7 @@
                             <h3 class="panel-title">Busqueda</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="" method="POST" >
+                            <form action="usuarios-edicion.jsp?busq=ok" method="POST" >
                                 <div class="row" >
                                     <div class="col-sm-6" >
                                         <div class="form-group">
@@ -97,11 +97,12 @@
                         </thead>
                         <tbody>
                             <%
-                                Usuario usuBus = new Usuario(request.getParameter("txtCodigo"), request.getParameter("txtNombre"), request.getParameter("txtApellido"), null, null, null, null);
-                                UsuarioDao dao = new UsuarioDao();
-                                ArrayList<Usuario> listUsu = dao.searchUsuarios(usuBus);
-                                if (listUsu != null)
-                                    for (Usuario item : listUsu) {
+                                if ("ok".equals(request.getParameter("busq"))) {
+                                    Usuario usuBus = new Usuario(request.getParameter("txtCodigo"), request.getParameter("txtNombre"), request.getParameter("txtApellido"), null, null, null, null);
+                                    UsuarioDao dao = new UsuarioDao();
+                                    ArrayList<Usuario> listUsu = dao.searchUsuarios(usuBus);
+                                    if (listUsu != null)
+                                        for (Usuario item : listUsu) {
                             %>
                             <tr>
                                 <td><%=item.getCodUsuario()%></td>
@@ -110,14 +111,14 @@
                                 <td><%=item.getCorreo()%></td>
                                 <td>
                                     <a href="#" title="Editar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> &nbsp;&nbsp;&nbsp;
-                                    <a href="#" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                    <a href="../usuarioServlet?accion=ELIMINAR&codUsuario=<%=item.getCodUsuario()%>" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                 </td>
                             </tr>
-                            <%}%>
+                            <%}
+                                }%>
 
                         </tbody>
                     </table>
-
                 </div>
             </div>
 

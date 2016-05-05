@@ -20,8 +20,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="nav navbar-nav">
-                <li class="" id="liReserva" ><a href="reserva.jsp">Reserva</a></li>
                 <li class="" id="liCatalogo" ><a href="catalogo.jsp">Catalogo</a></li>
+                <li class="" id="liReserva" ><a href="reserva.jsp">Reserva</a></li>
                 <li class="" id="liUsuarios" ><a href="usuarios-nuevo.jsp">Usuarios</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

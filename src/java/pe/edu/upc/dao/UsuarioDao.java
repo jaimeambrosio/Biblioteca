@@ -101,6 +101,19 @@ public class UsuarioDao {
             us.setNombreTUsuario(rs.getString(6));
             list.add(us);
         }
+        rs.close();
+        ps.close();
+        cn.close();
         return list;
+    }
+
+    public void eliminarUsuario(String codUsuario)throws Exception{
+        String sql ="DELETE FROM usuario WHERE codusuario=?";
+        Connection cn=ConectaDB.getConnection();
+        PreparedStatement ps = cn.prepareStatement(sql);
+        ps.setString(1, codUsuario);
+        ps.executeUpdate();
+        ps.close();
+        cn.close();
     }
 }

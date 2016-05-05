@@ -52,8 +52,7 @@
                             <h3 class="panel-title">Nuevo Usuario</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="../usuarioServlet?accion=REGISTRAR" method="POST" >
-
+                            <form action="../usuarioServlet?accion=REGISTRAR" method="POST"   >
                                 <div class="row" >
                                     <div class="col-sm-6" >
                                         <div class="form-group">
