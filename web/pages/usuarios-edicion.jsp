@@ -92,6 +92,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Correo</th>
+                                <th>Tipo de usuario</th>
                                 <th>...</th>
                             </tr>
                         </thead>
@@ -109,6 +110,7 @@
                                 <td><%=item.getNombre()%></td>
                                 <td><%=item.getApellido()%></td>
                                 <td><%=item.getCorreo()%></td>
+                                <td><%=item.getNombreTUsuario()%></td>
                                 <td>
                                     <a href="#" title="Editar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> &nbsp;&nbsp;&nbsp;
                                     <a href="../usuarioServlet?accion=ELIMINAR&codUsuario=<%=item.getCodUsuario()%>" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

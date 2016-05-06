@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<div class="modal fade" id="modalRegistroAlumno" tabindex="-1" role="dialog">
+<div class="modal fade" data-backdrop="false" id="modalRegistroAlumno" tabindex="-1" role="dialog" >
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="usuarioServlet?accion=REGISTRAR" method="POST" autocomplete="off" >
